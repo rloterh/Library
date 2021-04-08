@@ -34,6 +34,14 @@ class UI {
   }
 }
 
+class Store {
+  static addBook(book) {
+    const library = Store.getLibrary();
+    library.push(book);
+    localStorage.setItem('library', JSON.stringify(library));
+  }
+}
+
 
 
 // Event: Display books list
