@@ -32,6 +32,12 @@ class UI {
   static toggleRead(readBtn) {
     readBtn.textContent = readBtn.textContent === 'Read' ? 'Unread' : 'Read';
   }
+  static clearFields(){
+    document.querySelector('#title').value = '';
+    document.querySelector('#author').value = '';
+    document.querySelector('#pages').value = '';
+    document.querySelector('#read').value = '';
+  }
 }
 
 class Store {
