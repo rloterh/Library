@@ -6,10 +6,10 @@ class Book {
     this.read = read;
   }
 }
-// UI Class: Handle UI Tasks/features
+
 class UI {
   static displayLibrary() {
-    const library; // Get library content from localStorage
+    const library = Store.getLibrary();
     library.forEach((book) => UI.addBookToLibrary(book));
   }
   static addBookToLibrary(book) {
@@ -27,6 +27,22 @@ class UI {
   static deleteBook(el) {
     if(el.classList.contains('delete')){
       el.parentElement.parentElement.remove();
+    }
+  }
+  static showAlert(el, message, className) {
+    const div  = document.createElement('div');
+    div.className = `alert alert-${className}`;
+    div.appendChild(document.createTextNode(message));
+    if (el.classList.contains('delete')) {
+      const container =  document.querySelector('.container');
+      const table =  document.querySelector('.table');
+      container.insertBefore(div, table);
+      setTimeout(( )=> document.querySelector('.alert').remove(), 3000);
+    } else if (el.classList.contains('submit')) { 
+      const container = document.querySelector('.modal-body');
+      const form = document.querySelector('#book-form');
+      container.insertBefore(div, form);
+      setTimeout(( )=> document.querySelector('.alert').remove(), 3000);
     }
   }
   static toggleRead(readBtn) {
@@ -76,30 +92,21 @@ class Store {
   }
 }
 
-// Event: Display books list
 document.addEventListener('DOMContentLoaded', UI.displayLibrary);
-// Add new book
+
 document.querySelector('#book-form').addEventListener('click', (e) => {
-  //Prevent actual submit
   e.preventDefault();
-  //Get form values
   const title = document.querySelector('#title').value;
   const author = document.querySelector('#author').value;
   const pages = document.querySelector('#pages').value;
   const read = document.querySelector('#read').value;
-  //Validate
   if (title === '' || author === '' || pages === '' || read === 'Have you read it?') {
     UI.showAlert('please fill in all fields', 'danger');
   } else {
-    // Instatiate book
     const book = new Book(title, author, pages, read);
-    // Add Book to UI
     UI.addBookToLibrary(book);
-    // Add book to localStorage
     Store.addBook(book);
-    // Show success message
     UI.showAlert('Book Added', 'success');
-    // Clear Fileds
     UI.clearFields();
   }
 });
