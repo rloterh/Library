@@ -1,10 +1,13 @@
-# Library - HTML Forms (Microverse HTML/ CSS Module)
+# Book Library built with Vanilla JavaScript
 
 ![Microverse](https://img.shields.io/badge/-Microverse-007bff?style=for-the-badge)
 
 
 ## Description
-The rubric of this project is to demonstrate the creation of HTML/ CSS forms by designing a clone of the [Intuit Mint](https://mint.intuit.com/) signup page. The specification for this project is a part of [The Odin Project](https://www.theodinproject.com/).
+The rubric of this project is to build a web application where users can add books to a library table.
+- A user can create a new book including: title, author, pages and read-status.
+- A user can change the read-status button.
+- A user can remove a book from the library table.
 
 
 ## Library Directory 📙
@@ -22,30 +25,32 @@ The rubric of this project is to demonstrate the creation of HTML/ CSS forms by 
 
 
 ## Live Demo
-[MintSignUpClone live demo](https://brave-lovelace-cb006a.netlify.app/)
+[BookLibrary live demo](https://modest-hamilton-0b32c9.netlify.app/)
 
 
 ## App Screenshot
-![img](screenshot.png)
+![img](https://user-images.githubusercontent.com/54684961/114098574-25603100-9887-11eb-82a7-bb1e20ff1eeb.png)
+![img2](https://user-images.githubusercontent.com/54684961/114099085-e4b4e780-9887-11eb-8b92-f2eec20f1770.png)
 
 
 ## Built With
 
+- JavaScript
 - HTML
-- CSS
+- CSS (Bootstrap)
 
 
 ## Getting Started
 
-1. - Copy the git link `https://github.com/rloterh/MintSignupClone.git` of this project
-2. - In your terminal run the command `git clone https://github.com/rloterh/MintSignupClone.git`
+1. - Copy the git link `https://github.com/rloterh/Library.git` of this project
+2. - In your terminal run the command `git clone https://github.com/rloterh/Library.git`
 3. - Navigate to the cloned project directory
 4. - Within the project root directory launch `index.html` in a web browser
 
 
 ## Testing
 
-This project was tested using [W3C Validator](https://validator.w3.org/) and [Stylelint](https://stylelint.io/)
+This project was tested using [W3C Validator](https://validator.w3.org/), [Stylelint](https://stylelint.io/) and [Eslint](https://eslint.org/)
  
 
 ### Validating HTML Syntax
@@ -55,13 +60,13 @@ This project was tested using [W3C Validator](https://validator.w3.org/) and [St
 3. - Click on the check button to validate
 4. - All test cases should pass, when no error message is shown 
 
-### Validating CSS Syntax
+### Validating JavaScript Syntax
 
 1. - Run the command `npm -v` to ensure node package manager is installed
 2. - Go to [npmjs.com](https://www.npmjs.com/get-npm) to install node package manager, if not installed
 3. - Go to the terminal, and navigate to project directory
 4. - Run the command `npm install`
-5. - Validate the css syntax and code standard by running the command `npx stylelint "**/*.{css,scss}"`
+5. - Validate the javascript syntax and code standard by running the command `npx eslint app.js`
 6. - All test cases passes, when no error message is shown in the terminal
 
 
@@ -75,19 +80,19 @@ This project was tested using [W3C Validator](https://validator.w3.org/) and [St
 [![TWITTER](https://img.shields.io/badge/-TWITTER-1DA1F2?style=for-the-badge&logo=Twitter&logoColor=white)](https://twitter.com/RLoterh) <br>
 
 
- ### 👨‍💻 Mohammad Umarh
+ ### 👨‍💻 Mily Puente
 
-[![GitHub](https://img.shields.io/badge/-GitHub-000?style=for-the-badge&logo=GitHub&logoColor=white)](https://github.com/mohammadumar28) <br>
-[![LINKEDIN](https://img.shields.io/badge/-LINKEDIN-0077B5?style=for-the-badge&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/mdumar28/) <br>
-[![EMAIL](https://img.shields.io/badge/-EMAIL-D14836?style=for-the-badge&logo=Mail.Ru&logoColor=white)](mailto:mohammadumar28@gmail.com) <br>
-[![TWITTER](https://img.shields.io/badge/-TWITTER-1DA1F2?style=for-the-badge&logo=Twitter&logoColor=white)](https://twitter.com/Mohammadumar28)<br>
+[![GitHub](https://img.shields.io/badge/-GitHub-000?style=for-the-badge&logo=GitHub&logoColor=white)](https://github.com/Milypm) <br>
+[![LINKEDIN](https://img.shields.io/badge/-LINKEDIN-0077B5?style=for-the-badge&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/milypuentem/) <br>
+[![EMAIL](https://img.shields.io/badge/-EMAIL-D14836?style=for-the-badge&logo=Mail.Ru&logoColor=white)](mailto:milypuentem@gmail.com) <br>
+[![TWITTER](https://img.shields.io/badge/-TWITTER-1DA1F2?style=for-the-badge&logo=Twitter&logoColor=white)](https://twitter.com/MilyPuente)<br>
 
 
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/rloterh/MintSignupClone/issues/new).
+Feel free to check the [issues page](https://github.com/rloterh/Library/issues).
 
 
 ## Show your support
@@ -95,7 +100,7 @@ Feel free to check the [issues page](https://github.com/rloterh/MintSignupClone/
 Give a ⭐️ if you like this project!
 
 ## Acknowledgments
-- [Intuit Mint](https://mint.intuit.com/)
+- [Bootswatch](https://bootswatch.com/)
 - [The Odin Project](https://www.theodinproject.com/)
 - [Microverse](https://www.microverse.org/)
 
