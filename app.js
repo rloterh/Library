@@ -49,6 +49,15 @@ class Store {
     library.push(book);
     localStorage.setItem('library', JSON.stringify(library));
   }
+  static removeBook(title) {
+    const library = Store.getLibrary();
+    library.forEach((book, index) => {
+      if(book.title === title){
+        library.splice(index, 1);
+      }
+    });
+    localStorage.setItem('library', JSON.stringify(library));
+  }
   
 }
 
