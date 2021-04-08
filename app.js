@@ -88,14 +88,18 @@ document.querySelector('#book-form').addEventListener('click', (e) => {
   const pages = document.querySelector('#pages').value;
   const read = document.querySelector('#read').value;
   //Validate
-  if(title === '' || author === '' || pages === '' || read === 'Have you read it?'){
+  if (title === '' || author === '' || pages === '' || read === 'Have you read it?') {
     UI.showAlert('please fill in all fields', 'danger');
   } else {
     // Instatiate book
     const book = new Book(title, author, pages, read);
-    //Add Book to UI
+    // Add Book to UI
     UI.addBookToLibrary(book);
-    //Clear Fileds
+    // Add book to localStorage
+    Store.addBook(book);
+    // Show success message
+    UI.showAlert('Book Added', 'success');
+    // Clear Fileds
     UI.clearFields();
   }
 });
