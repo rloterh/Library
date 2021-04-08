@@ -15,6 +15,26 @@
       <span class="font-weight-bold">Book</span><span style="color:#111;">Library</span>
     </h1>
   </header>
+
+  <form id="book-form">
+    <div class="form-fgroup mb-3">
+      <input type="text" id="title" class="form-control" placeholder="Title">
+    </div>
+    <div class="form-fgroup mb-3">
+      <input type="text" id="author" class="form-control" placeholder="Author">
+    </div>
+    <div class="form-fgroup mb-3">
+      <input type="text" id="pages" class="form-control" placeholder="Pages">
+    </div>
+    <div class="form-fgroup my-3">
+      <select class="form-select p-2" id="read">
+        <option selected="">Have You Read It?</option>
+        <option value="Read">Read</option>
+        <option value="Unread">Unread</option>
+      </select>
+    </div>
+    <input type="submit" value="Add Book" class="submit btn btn-primary btn-block">
+  </form>
   
 <script src="app.js"></script> 
 </body>
