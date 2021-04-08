@@ -16,11 +16,11 @@ class UI {
     const list = document.querySelector('#book-list');
     const row = document.createElement('tr');
     row.innerHTML =`
-      <td>${book.title}</td>
-      <td>${book.author}</td>
-      <td>${book.pages}</td>
-      <td><div class="read-toggle btn btn-info">${book.read}</div></td>
-      <td><a href="#" class="btn  btn-danger btn-sm delete">X</a></td>
+    <td style="vertical-align:middle;">${book.title}</td>
+    <td style="vertical-align:middle;">${book.author}</td>
+    <td style="vertical-align:middle;">${book.pages}</td>
+    <td style="table-layout:fixed; width:200px;"><div class="read-toggle btn btn-secondary font-weight-bold">${book.read}</div></td>
+    <td style="vertical-align:middle;"><a href="#" class="btn  btn-danger btn-sm delete">X</a></td>
     `;
     list.appendChild(row);
   }
@@ -33,18 +33,18 @@ class UI {
     const div  = document.createElement('div');
     div.className = `alert alert-${className}`;
     div.appendChild(document.createTextNode(message));
-    // if (el.classList.contains('delete')) {
+    if (el.classList.contains('delete')) {
       const container =  document.querySelector('.container');
       const table =  document.querySelector('.table');
       container.insertBefore(div, table);
       setTimeout(( )=> document.querySelector('.alert').remove(), 3000);
-    } 
-    // else if (el.classList.contains('submit')) { 
-    //   const modalBody = document.querySelector('.modal-body');
-    //   const form = document.querySelector('#book-form');
-    //   modalBody.insertBefore(div, form);
-    //   setTimeout(( )=> document.querySelector('.alert').remove(), 3000);
-    // }
+    } else if (el.classList.contains('submit')) { 
+      const modalBody = document.querySelector('.modal-body');
+      const form = document.querySelector('#book-form');
+      modalBody.insertBefore(div, form);
+      setTimeout(( )=> document.querySelector('.alert').remove(), 3000);
+    }
+  }
 
   static toggleRead(readBtn) {
     readBtn.textContent = readBtn.textContent === 'Read' ? 'Unread' : 'Read';
@@ -102,12 +102,12 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
   const pages = document.querySelector('#pages').value;
   const read = document.querySelector('#read').value;
   if (title === '' || author === '' || pages === '' || read === 'Have You Read It?') {
-    UI.showAlert('please fill in all fields', 'danger');
+    UI.showAlert(e.target.lastElementChild, 'please fill in all fields', 'danger');
   } else {
     const book = new Book(title, author, pages, read);
     UI.addBookToLibrary(book);
     Store.addBook(book);
-    UI.showAlert('Book Added', 'success');
+    UI.showAlert(e.target.lastElementChild,'Book Added', 'success');
     UI.clearFields();
   }
 });
@@ -116,7 +116,7 @@ document.querySelector('#book-list').addEventListener('click',(e) =>{
   if (e.target.classList.contains('delete')) {
     UI.deleteBook(e.target);
     Store.removeBook(e.target.parentElement.parentElement.firstElementChild.textContent);
-    UI.showAlert('Book Removed', 'success');
+    UI.showAlert(e.target,'Book Removed', 'success');
   } else if (e.target.classList.contains('read-toggle')) {
     UI.toggleRead(e.target);
     Store.updateRead(e.target.parentElement.parentElement.firstElementChild.textContent);
