@@ -70,8 +70,6 @@ class Store {
   }
 }
 
-
-
 // Event: Display books list
 document.addEventListener('DOMContentLoaded', UI.displayLibrary);
 // Add new book
@@ -93,5 +91,16 @@ document.querySelector('#book-form').addEventListener('click', (e) => {
     UI.addBookToLibrary(book);
     //Clear Fileds
     UI.clearFields();
+  }
+});
+
+document.querySelector('#book-list').addEventListener('click',(e) =>{
+  if (e.target.classList.contains('delete')) {
+    UI.deleteBook(e.target);
+    Store.removeBook(e.target.parentElement.parentElement.firstElementChild.textContent);
+    UI.showAlert(e.target, 'Book Removed', 'success');
+  } else if (e.target.classList.contains('read-toggle')) {
+    UI.toggleRead(e.target);
+    Store.updateRead(e.target.parentElement.parentElement.firstElementChild.textContent);
   }
 });
