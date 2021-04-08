@@ -49,6 +49,16 @@ class Store {
     library.push(book);
     localStorage.setItem('library', JSON.stringify(library));
   }
+  static updateRead(title) {
+    const library = Store.getLibrary();
+    library.forEach((book, index) => {
+      if(book.title === title){
+        const readSwitch = library[index].read === 'Read' ? 'Unread' : 'Read';
+        library[index].read = readSwitch;
+      }
+    });
+    localStorage.setItem('library', JSON.stringify(library));
+  }
   static removeBook(title) {
     const library = Store.getLibrary();
     library.forEach((book, index) => {
@@ -58,7 +68,6 @@ class Store {
     });
     localStorage.setItem('library', JSON.stringify(library));
   }
-  
 }
 
 
